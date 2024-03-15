@@ -29,14 +29,7 @@ DEBUG = False  # Set to False in production
 
 # Add your Vercel deployment domain to ALLOWED_HOSTS
 # vercel_app/settings.py
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-
-# Static files (CSS, JavaScript, images)
-STATIC_URL = '/static/'
-
-# Define the location for static files to be collected to
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 # Application definition
 
@@ -79,8 +72,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Voice_chatbot.wsgi.application'
-
+# WSGI_APPLICATION = 'Voice_chatbot.wsgi.application'
+WSGI_APPLICATION = 'Voice_chatbot.wsgi.wsgi.app'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -126,9 +119,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+import os
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
