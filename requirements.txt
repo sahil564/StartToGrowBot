@@ -1,4 +1,4 @@
-Python
+Python==3.12
 asgiref==3.7.2
 click==8.1.7
 django==4.2.11
