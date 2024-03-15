@@ -1,10 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import QBookSerializer
 from .models import FAQ
 from nltk.chat.util import Chat, reflections
+
+
+def index(request):
+    html = f'''
+    <html>
+        <body>
+            <h1>Hello from Vercel!</h1>
+            <p></p>
+        </body>
+    </html>
+    '''
+    return HttpResponse(html)
+
+
+
 
 
 
